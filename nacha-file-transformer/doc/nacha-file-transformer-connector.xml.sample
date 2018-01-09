@@ -1,0 +1,11 @@
+<!-- BEGIN_INCLUDE(nacha-file-transformer:config) -->
+    <nacha-file-transformer:config name="NACHA_File_Transformer__Configuration" doc:name="NACHA File Transformer: Configuration"/>
+<!-- END_INCLUDE(nacha-file-transformer:config) -->
+
+<!-- BEGIN_INCLUDE(nacha-file-transformer:create-file) -->
+    <nacha-file-transformer:create-file config-ref="NACHA_File_Transformer__Configuration" doc:name="NACHA File Transformer"/>
+<!-- END_INCLUDE(nacha-file-transformer:create-file) -->
+
+<!-- BEGIN_INCLUDE(nacha-file-transformer:read-file) -->
+    <nacha-file-transformer:read-file config-ref="NACHA_File_Transformer__Configuration" doc:name="NACHA File Transformer"/>
+<!-- END_INCLUDE(nacha-file-transformer:read-file) -->

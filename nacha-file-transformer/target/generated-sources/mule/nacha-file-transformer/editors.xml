@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/nacha-file-transformer" prefix="nacha-file-transformer">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="NACHA File Transformer" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/nacha-file-transformer/abstractNacha-file-transformerConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="NACHA File Transformer: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/nacha-file-transformer-connector-small.png" localId="config" image="icons/theme.classic/nacha-file-transformer-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/nacha-file-transformer/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Nacha-file-transformer configuration properties.">
+      <group id="nacha-file-transformerGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractnacha-file-transformerconnectorgeneric" description="Interact with Nacha-file-transformer." icon="icons/theme.classic/nacha-file-transformer-connector-small.png" localId="abstractNacha-file-transformerConnectorGeneric" image="icons/theme.classic/nacha-file-transformer-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractNacha-file-transformerConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/nacha-file-transformer/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.nacha-file-transformer" caption="NACHA File Transformer" description="Creates New or Parses ACH files in NACHA Format" icon="icons/theme.classic/nacha-file-transformer-connector-small.png" localId="nacha-file-transformer-connector" image="icons/theme.classic/nacha-file-transformer-connector-large.png" extends="http://www.mulesoft.org/schema/mule/nacha-file-transformer/abstractNacha-file-transformerConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="nacha-file-transformerConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Nacha-file-transformer operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/nacha-file-transformer/abstractNacha-file-transformerConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/nacha-file-transformer/create-file" modeLabel="Create File"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/nacha-file-transformer/read-file" modeLabel="Read / Parse File"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.io.ByteArrayOutputStream" caption="Create File" icon="icons/theme.classic/nacha-file-transformer-connector-small.png" localId="create-file" image="icons/theme.classic/nacha-file-transformer-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/nacha-file-transformer/abstractNacha-file-transformerConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string defaultValue="#[payload]" name="mapDataFromExpression-ref" caption="Map Data From Expression Reference" description="MEL Expression Containing the ACHFile Object." required="false" javaType="com.ach.achViewer.ach.ACHFile"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="com.ach.achViewer.ach.ACHFile" caption="Read / Parse File" icon="icons/theme.classic/nacha-file-transformer-connector-small.png" localId="read-file" image="icons/theme.classic/nacha-file-transformer-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/nacha-file-transformer/abstractNacha-file-transformerConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string defaultValue="#[payload]" name="mapDataFromExpression-ref" caption="Map Data From Expression Reference" description="MEL Expression Containing the ACH File. Valid types are String, InputStream, and ByteArrayInputStream." required="false" javaType="java.lang.Object"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

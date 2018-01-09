@@ -1,0 +1,105 @@
+{
+  "minMuleVersion": "3.5.0",
+  "requiresEntitlement": false,
+  "requiresEnterpriseLicense": false,
+  "configs": [
+    {
+      "configElementName": "config",
+      "attributes": [],
+      "javaName": "ConnectorConfig",
+      "friendlyName": "Configuration",
+      "type": "ConfigurationConfig"
+    }
+  ],
+  "attributes": [],
+  "processors": [
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cnacha-file-transformer:read-file config-ref\u003d\"NACHA_File_Transformer__Configuration\" doc:name\u003d\"NACHA File Transformer\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "ACHFile",
+        "fullQualifiedJavaTypeName": "com.ach.achViewer.ach.ACHFile",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "ACHFile"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "Object",
+          "fullQualifiedJavaTypeName": "java.lang.Object",
+          "defaultValue": "#[payload]",
+          "isOptional": true,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "java.lang.Object",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "mapDataFromExpression"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "readFile",
+      "friendlyName": "Read / Parse File",
+      "description": "Reads the file contents either as a String, InputStream, or ByteArrayInputStream.  It creates and returns\nan ACHFile object which can be consumed within the Mule Flow",
+      "xsdName": "read-file"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [
+        "\u003cnacha-file-transformer:create-file config-ref\u003d\"NACHA_File_Transformer__Configuration\" doc:name\u003d\"NACHA File Transformer\"/\u003e"
+      ],
+      "javaReturnType": {
+        "javaTypeName": "ByteArrayOutputStream",
+        "fullQualifiedJavaTypeName": "java.io.ByteArrayOutputStream",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "ByteArrayOutputStream"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "ACHFile",
+          "fullQualifiedJavaTypeName": "com.ach.achViewer.ach.ACHFile",
+          "defaultValue": "#[payload]",
+          "isOptional": true,
+          "isRefOnly": true,
+          "isPayload": false,
+          "isComplexType": true,
+          "isEnum": false,
+          "isString": false,
+          "typeMirror": "com.ach.achViewer.ach.ACHFile",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "mapDataFromExpression"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "createFile",
+      "friendlyName": "Create File",
+      "description": "Writes a file from an ACHFile object.  ACHFile is probably easiest to create via mapping\nwith DataWeave.",
+      "xsdName": "create-file"
+    }
+  ],
+  "filters": [],
+  "transformers": [],
+  "sources": [],
+  "javaName": "NachaFileTransformerConnector",
+  "friendlyName": "NACHA File Transformer",
+  "xsdName": "nacha-file-transformer"
+}
