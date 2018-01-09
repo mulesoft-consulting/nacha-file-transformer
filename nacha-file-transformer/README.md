@@ -38,6 +38,9 @@ Once downloaded and added to Anypoint Studio, you can install it in Studio for u
 #Usage
 For information about usage our documentation at http://github.com/mulesoft-consulting/nacha-file-transformer.
 
+# Known Issues
+* When using the Transform Message (DataWeave) component to create an ACHFile (com.ach.achViewer.ACHFile) object, some items in the object are counters and will fail on transform.  Part of the reason is that DW (or likely Java) is not able to use reflection properly for the items that are counters.  This comes from the work that [johnlcallaway](https://sourceforge.net/u/johnlcallaway/profile/) built.  Some refactoring needs to be done on the ACHFile object in order to support all use cases.
+
 # Reporting Issues
 
 We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link http://github.com/mulesoft-consulting/nacha-file-transformer/issues.
